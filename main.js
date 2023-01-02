@@ -1,14 +1,19 @@
 const container = document.querySelector('.container');
-container.style.cssText = 'display: flex; align-items: stretch;'
+    container.style.cssText = 'display: flex; justify-content: center; flex-wrap: wrap; width: 700px; margin: auto;'
 
-// Loop to create 16 divs under the container element
-for (i = 0; i < 16; i++) {
+function makeBoxes() {
     const divs = document.createElement('div');
-    divs.classList.add('boxes');
-    divs.style.cssText = 'padding: 10px; margin: 10px; border-style: solid';
-    container.appendChild(divs);
+        divs.classList.add('boxes');
+        divs.style.cssText = 'padding: 20px; border-style: solid';
+        container.appendChild(divs);
 }
 
-// Write out pseudocode and break down different steps. Will need to refactor code above to allow for a user's input
+let number = 16;
 
+for (i = 0; i < number; i++) {
+    makeBoxes(number);
+    for(j = 1; j < number; j++) {
+        makeBoxes(number);
+    };
+}
 
