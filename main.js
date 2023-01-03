@@ -4,7 +4,7 @@ const container = document.querySelector('.container');
 function makeBoxes() {
     const divs = document.createElement('div');
         divs.classList.add('boxes');
-        divs.style.cssText = 'padding: 20px; border-style: solid';
+        divs.style.cssText = 'padding: 20px; border-style: solid;';
         container.appendChild(divs);
 }
 
@@ -17,3 +17,9 @@ for (i = 0; i < number; i++) {
     };
 }
 
+const color = document.querySelectorAll('.boxes')
+color.forEach(boxes => {
+    boxes.addEventListener('mousedown', function() {
+        boxes.style.cssText = 'padding: 20px; border-style: solid; background-color: black;';
+    })
+})
