@@ -1,25 +1,37 @@
 const container = document.querySelector('.container');
-    container.style.cssText = 'display: flex; justify-content: center; flex-wrap: wrap; width: 700px; margin: auto;'
+    container.style.cssText = 'display: flex; justify-content: center; width: 900px;'
 
-function makeBoxes() {
-    const divs = document.createElement('div');
-        divs.classList.add('boxes');
-        divs.style.cssText = 'padding: 20px; border-style: solid;';
-        container.appendChild(divs);
-}
+let gridSize = 10;
+// prompt('Enter a number for size of the grid');
+createGrid(gridSize);
 
-let number = 16;
+function createGrid(size) {
 
-for (i = 0; i < number; i++) {
-    makeBoxes(number);
-    for(j = 1; j < number; j++) {
-        makeBoxes(number);
+    if (size > 100) {
+        size = 100;
+    }
+
+    for (i = 0; i < gridSize; i++) {
+        const columns = document.createElement('div');
+            columns.classList.add('column');
+            columns.style.cssText = 'outline: 1px solid black;'
+            container.appendChild(columns);
+        
+        for (j = 0; j < gridSize; j++) {
+            const tiles = document.createElement('div');
+                tiles.classList.add('tile');
+                tiles.style.cssText = 'padding: 15px; outline: 1px solid black;'
+                columns.appendChild(tiles);
+        };
     };
 }
 
-const color = document.querySelectorAll('.boxes')
-color.forEach(boxes => {
+
+
+
+const shade = document.querySelectorAll('.boxes')
+shade.forEach(boxes => {
     boxes.addEventListener('mousedown', function() {
-        boxes.style.cssText = 'padding: 20px; border-style: solid; background-color: black;';
+        boxes.style.cssText = 'padding: 15px; border-style: solid; background-color: black;';
     })
 })
