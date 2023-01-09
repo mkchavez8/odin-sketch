@@ -8,3 +8,12 @@ body {
     align-items: center;
     height: 100%;
 }
+
+.container {
+    width: 400px;
+    height: 400px;
+    display: grid;
+    position: absolute;
+    border: solid grey;
+    border-width: 20px;
+}
