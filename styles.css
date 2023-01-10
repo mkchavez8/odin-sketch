@@ -3,9 +3,6 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
 }
 
@@ -16,4 +13,11 @@ body {
     position: absolute;
     border: solid grey;
     border-width: 20px;
+    margin-left: 460px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }

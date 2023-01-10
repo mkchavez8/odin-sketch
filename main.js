@@ -1,7 +1,7 @@
 const container = document.querySelector('.container');
+const navBar = document.querySelector('.navBar');
 
-let gridSize = 10;
-// prompt('Enter a number for size of the grid');
+let gridSize = 5; //prompt('Enter a number for size of the grid');
 createGrid(gridSize);
 
 function createGrid(size) {
@@ -23,6 +23,10 @@ function createGrid(size) {
         gridItem.addEventListener('mouseover', function() {
         gridItem.style.cssText = 'background-color: black;';
         // Want to split the anonymous function below into a real one
+        });
     });
-});
-}
+};
+
+let gridButton = document.createElement('button');
+    gridButton.textContent = 'Choose Grid Size';
+    navBar.appendChild(gridButton);
