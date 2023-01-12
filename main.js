@@ -1,32 +1,38 @@
 const container = document.querySelector('.container');
 const navBar = document.querySelector('.navBar');
 
-let gridSize = 5; //prompt('Enter a number for size of the grid');
-createGrid(gridSize);
+let gridButton = document.createElement('button');
+    gridButton.textContent = 'Choose Grid Size';
+    gridButton.addEventListener('click', getGridSize);
+    navBar.appendChild(gridButton);
 
-function createGrid(size) {
+function getGridSize() {
+    let size = prompt('Enter a number for size of the grid');
+    return size;
+ };
+
+function createGrid(gridSize) {
     let gridArea = gridSize * gridSize;
 
-    if (size > 100) {
-        size = 100;
+    if (gridSize > 100) {
+        gridSize = 100;
     }
 
     for (i = 0; i < gridArea; i++) {
         let gridItem = document.createElement('div');
             gridItem.classList.add('gridItem');
-            container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-            container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+            container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+            container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
             container.appendChild(gridItem);
     };
-    const shade = document.querySelectorAll('.gridItem')
-        shade.forEach(gridItem => {
+    const color = document.querySelectorAll('.gridItem')
+        color.forEach(gridItem => {
         gridItem.addEventListener('mouseover', function() {
         gridItem.style.cssText = 'background-color: black;';
-        // Want to split the anonymous function below into a real one
+        // Want to split the anonymous function above into a real one
         });
     });
 };
 
-let gridButton = document.createElement('button');
-    gridButton.textContent = 'Choose Grid Size';
-    navBar.appendChild(gridButton);
+//  Initialization
+createGrid(getGridSize());
